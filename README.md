@@ -1,7 +1,5 @@
-You find here the repository for the Docker image muenchhausen/ubuntu-dovecot-simple-imap.
-
 ## What is it
-It is a simple [Dovecot](http://www.dovecot.org) IMAP server with one predefined account for archiving your mail on a locally available NFS share. 
+It is a simple [Dovecot](http://www.dovecot.org) IMAP server Docker image with one predefined account for archiving your mail on a locally available NFS share. 
 
 
 ## Requirements
