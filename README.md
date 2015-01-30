@@ -26,5 +26,5 @@ You can optimize the IT Security settings if required. Just edit the dockerfile 
     docker build -t muenchhausen/ubuntu-dovecot-simple-imap .
 
 ## Future Steps
-The preferred way is the Unix Way: Small reusable images with clear responsibilities. A nice image is [cpuguy83's nfs-client](https://registry.hub.docker.com/u/cpuguy83/nfs-client/): It can be used to map NFS shares to volumes which can be accessed by any other Docker containers as required. Unfortunately it is not yet working. See [issue](https://github.com/docker/docker/issues/4213). So let's wait for that, than we work on a more beautiful solution. 
+The preferred way is the Unix Way: Small reusable images with clear responsibilities. A nice image is [cpuguy83's nfs-client](https://registry.hub.docker.com/u/cpuguy83/nfs-client/): It can be used to map NFS shares to volumes which can be accessed by any other Docker containers as required. Unfortunately it is not working yet - see this [issue](https://github.com/docker/docker/issues/4213). Let's wait for that, than we work on a more beautiful solution. 
 
