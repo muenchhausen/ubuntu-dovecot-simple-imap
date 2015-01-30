@@ -18,6 +18,13 @@ Start the docker container:
 
 Create an imap mail account with username mailarchive and password mailarchive and plain text authentication. Done.
 
+To stop dovecot by Ctrl-C does not work here. I usally stop it by running 
+
+    docker ps -all
+    docker stop <id>
+
+Because I use the --rm docker option, the container will be removed after stopping, which is fine for this use case. Just try also other dovecot options than -F. E.g. option -n will show the actual config.
+
 ## Adapt and Build it
 You can optimize the IT Security settings if required. Just edit the dockerfile and try to build it on your own :)
 
