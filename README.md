@@ -14,7 +14,8 @@ Create a NFS share with the name mailarchive. Allow your Docker host IP address 
 
 Start the docker container:  
 
-    docker run --rm --privileged -e NFS_REMOTETARGET=192.168.10.10:/mailarchive -p 143:143 muenchhausen/ubuntu-dovecot-simple-imap -F
+    docker run --rm --privileged -e NFS_REMOTETARGET=192.168.10.10:/mailarchive \
+    -p 143:143 muenchhausen/ubuntu-dovecot-simple-imap -F
 
 Create an imap mail account with username mailarchive and password mailarchive and plain text authentication. Done.
 
@@ -26,10 +27,11 @@ To stop dovecot by Ctrl-C does not work here. I usally stop it by running
 Because I use the --rm docker option, the container will be removed after stopping, which is fine for this use case. Just try also other dovecot options than -F. E.g. option -n will show the actual config.
 
 ## Adapt and Build it
-You can optimize the IT Security settings if required. Just edit the dockerfile and try to build it on your own :)
+You can optimize the IT Security settings if required. Pull it from GitHub. Edit the dockerfile and try to build it on your own :)
 
     docker build -t muenchhausen/ubuntu-dovecot-simple-imap .
 
 ## Future Steps
-The preferred way is the Unix Way: Small reusable images with clear responsibilities. A nice image is [cpuguy83's nfs-client](https://registry.hub.docker.com/u/cpuguy83/nfs-client/): It can be used to map NFS shares to volumes which can be accessed by any other Docker containers as required. Unfortunately it is not working yet - see this [issue](https://github.com/docker/docker/issues/4213). Let's wait for that, than we work on a more beautiful solution. 
+The preferred way is the Unix Way: Small reusable images with clear responsibilities. One image for Dovecot, one image for the NFS Client - e.g. [cpuguy83's nfs-client](https://registry.hub.docker.com/u/cpuguy83/nfs-client/): Somewhen this can be used to map NFS shares to volumes which can be accessed by any other Docker containers as required. This is not possible today - see [issue](https://github.com/docker/docker/issues/4213). So let's wait.
+ 
 

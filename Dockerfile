@@ -1,9 +1,11 @@
 FROM ubuntu
 MAINTAINER Derk Muenchhausen <derk@muenchhausen.de>
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-      dovecot-core dovecot-imapd nfs-common inotify-tools
+RUN apt-get update && apt-get install -y \
+    dovecot-core \
+    dovecot-imapd \
+    nfs-common \
+    inotify-tools
 
 RUN echo "mail_location = maildir:~/Maildir" >> /etc/dovecot/conf.d/10-mail.conf && \
 	echo "ssl = no" > /etc/dovecot/conf.d/10-ssl.conf && \
