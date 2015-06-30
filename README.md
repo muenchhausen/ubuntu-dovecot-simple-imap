@@ -17,6 +17,12 @@ Start the docker container:
     docker run --rm --privileged -e NFS_REMOTETARGET=192.168.10.10:/mailarchive \
     -p 143:143 muenchhausen/ubuntu-dovecot-simple-imap -F
 
+Start it as Daemon:
+
+    docker run --name='squidguard' -it --env WPAT_IP=192.168.10.11 \
+    --env WPAT_NOPROXY_NET=192.168.0.0 --env WPAT_NOPROXY_MASK=255.255.0.0 \
+    -d -p 3128:3128 -p 80:80 muenchhausen/docker-squidguard:latest
+
 Create an imap mail account with username mailarchive and password mailarchive and plain text authentication. Done.
 
 To stop dovecot by Ctrl-C does not work here. I usally stop it by running 
