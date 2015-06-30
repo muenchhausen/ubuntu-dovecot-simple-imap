@@ -2,15 +2,15 @@
 It is a simple [Dovecot](http://www.dovecot.org) IMAP server Docker image with one predefined account for archiving your mail on a locally available NFS share. 
 
 
-## Requirements
-* archive mail on a local IMAP Server at home
-* e.g. a NAS server with NFS can be used
+## My personal motivation to create this Docker image
+* I need to archive mail on a local IMAP Server at home
+* there is a present NFS server (NAS server with NFS)
 * home use requires limited IT security
 * solution must allow to migrate easily to new technologies over many years
 * as simple as possible :)
 
 ## How to use
-Create a NFS share with the name mailarchive. Allow your Docker host IP address to access it. 
+Here I create a NFS share with the name mailarchive. Allow your Docker host IP address to access it. 
 
 Start the docker container:  
 
