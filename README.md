@@ -1,6 +1,7 @@
 ## What is it
 It is a simple [Dovecot](http://www.dovecot.org) IMAP server Docker image with one predefined account for archiving your mail on a locally available NFS share. 
 
+This docker image is running perfect since Jan 2015 on my QNAP NAS :) Feedback e.g. on the alternative Synology DSM environment is very welcome.
 
 ## My personal motivation to create this Docker image
 * I need to archive mail on a local IMAP Server at home
