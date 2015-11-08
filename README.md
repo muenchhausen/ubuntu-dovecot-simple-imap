@@ -16,19 +16,19 @@ Here I create a NFS share with the name mailarchive. Allow your Docker host IP a
 Start the docker container:  
 
     docker run --rm --privileged -e NFS_REMOTETARGET=192.168.10.10:/mailarchive \
-    -p 143:143 muenchhausen/ubuntu-dovecot-simple-imap -F
+    -p 143:143 muenchhausen/ubuntu-dovecot-simple-imap:latest -F
 
-Start it as Daemon:
+Start it as Daemon and keep it running:
 
-    docker run --name='squidguard' -it --env WPAT_IP=192.168.10.11 \
-    --env WPAT_NOPROXY_NET=192.168.0.0 --env WPAT_NOPROXY_MASK=255.255.0.0 \
-    -d -p 3128:3128 -p 80:80 muenchhausen/docker-squidguard:latest
+    docker run -d --restart=always --privileged -e NFS_REMOTETARGET=192.168.10.10:/mailarchive \
+    -p 143:143 muenchhausen/ubuntu-dovecot-simple-imap:latest -F
 
 Create an imap mail account with username mailarchive and password mailarchive and plain text authentication. Done.
 
 To stop dovecot by Ctrl-C does not work here. I usally stop it by running 
 
     docker ps -all
+    
     docker stop <id>
 
 Because I use the --rm docker option, the container will be removed after stopping, which is fine for this use case. Just try also other dovecot options than -F. E.g. option -n will show the actual config.
