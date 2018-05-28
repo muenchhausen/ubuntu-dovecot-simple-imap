@@ -16,7 +16,8 @@ RUN echo "mail_location = maildir:~/Maildir" >> /etc/dovecot/conf.d/10-mail.conf
 
 RUN useradd -m mailarchive -p mailarchive -s /bin/false && \
 	echo "mailarchive:mailarchive"|chpasswd && \
-	mkdir /home/mailarchive/Maildir 
+	mkdir /home/mailarchive/Maildir && \
+	chown mailarchive:mailarchive /home/mailarchive/Maildir/
 
 ADD dovecotnfs.sh /usr/local/bin/dovecotnfs
 
